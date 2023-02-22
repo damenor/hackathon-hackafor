@@ -17,8 +17,7 @@ const getData = async () => {
 const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 
   useEffect(() => {
-    const response = getData()
-    console.log({ response })
+    getData().then(console.log).catch(console.error)
   }, [])
 
   return (
