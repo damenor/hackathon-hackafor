@@ -3,7 +3,7 @@ import type { GetServerSidePropsContext, NextPage } from 'next'
 
 import { AppLayout, CreatorCardTwitch, CreatorCardTwitchList } from '@/components'
 import { CreatorModel } from '@/models'
-import { fetcher } from '@/utils'
+import { fetcher, getServerSideData } from '@/utils'
 
 type TwitchPageProps = {
   creators: any[]
@@ -30,16 +30,6 @@ const TwitchPage: NextPage<TwitchPageProps> = ({ creators }) => {
 
 export default TwitchPage
 
-type GetServerSideDataArgs = {
-  serverSideProps: GetServerSidePropsContext
-  promises: Promise<any>[]
-}
-
-const getServerSideData = async ({ serverSideProps, promises }: GetServerSideDataArgs) => {
-  serverSideProps.res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
-  const promisesResponse = await Promise.all(promises)
-  return promisesResponse.map((data: any) => JSON.parse(JSON.stringify(data)))
-}
 
 type CheckIsLiveReturn = Promise<{ creator: any; online: boolean; rawUptime: string; twitchUserName: string }>
 const checkIsLive = async (creator: any) => {

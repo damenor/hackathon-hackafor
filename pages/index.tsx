@@ -1,9 +1,9 @@
+import { useEffect } from 'react'
 import type { GetServerSidePropsContext, NextPage } from 'next'
 
 import { HomeHero, HomeCreators, AppLayout } from '@/components'
-import { fetcher } from '@/utils'
-import { CreatorModelType } from '@/models'
-import { useEffect } from 'react'
+import { fetcher, getServerSideData } from '@/utils'
+import { CreatorModel, CreatorModelType } from '@/models'
 
 type HomePageProps = {
   creators: CreatorModelType
@@ -40,8 +40,14 @@ export const getCreatorsActives = async () => {
   }
 }
 
-export const getServerSideProps = async ({ res, req }: GetServerSidePropsContext) => {
+export const getServerSideProps = async ({ res, ...props }: GetServerSidePropsContext) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
-  const creators = await getCreatorsActives()
+
+  const [creators] = await getServerSideData({
+    serverSideProps: { res, ...props },
+    promises: [CreatorModel.findActives()],
+  })
+
+  // const creators = await getCreatorsActives()
   return { props: { creators } }
 }
