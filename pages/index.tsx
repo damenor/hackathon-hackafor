@@ -9,6 +9,7 @@ type HomePageProps = {
 }
 
 const HomePage: NextPage<HomePageProps> = ({ creators }) => {
+  console.log({process}, process.env)
   return (
     <AppLayout>
       <HomeHero />
@@ -20,17 +21,16 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 export default HomePage
 
 const API_URL = `${process.env.VERCEL_URL}/api`
-console.log({process})
 export const getCreatorsActives = async () => {
   const response = await fetcher({ url: `${API_URL}/creator` })
   return response.data
 }
 
 export const getServerSideProps = async ({ res, req }: GetServerSidePropsContext) => {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59'
-  )
+  // res.setHeader(
+  //   'Cache-Control',
+  //   'public, s-maxage=10, stale-while-revalidate=59'
+  // )
   const creators = await getCreatorsActives()
   return { props: { creators } }
 }
