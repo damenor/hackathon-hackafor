@@ -2,8 +2,8 @@ import { useState } from 'react'
 import type { GetServerSidePropsContext, NextPage } from 'next'
 
 import { AppLayout, CreatorCardTwitch, CreatorCardTwitchList } from '@/components'
-import { CreatorModel } from '@/models'
-import { fetcher, getServerSideData } from '@/utils'
+import { fetcher } from '@/utils'
+import { API_URL } from '@/services'
 
 type TwitchPageProps = {
   creators: any[]
@@ -30,36 +30,13 @@ const TwitchPage: NextPage<TwitchPageProps> = ({ creators }) => {
 
 export default TwitchPage
 
-
-type CheckIsLiveReturn = Promise<{ creator: any; online: boolean; rawUptime: string; twitchUserName: string }>
-const checkIsLive = async (creator: any) => {
-  const twitchUserName = creator.social.find((red: any) => red.type === 'twitch').userName
-  try {
-    const response = (await fetcher({ url: `https://midudev-apis.midudev.workers.dev/uptime/${twitchUserName}` })) as any
-    return { ...creator, twitchUserName, ...(response.online ? { ...response } : { online: false }) }
-  } catch (error) {
-    throw new Error(JSON.stringify(error))
-  }
+export const getCreatorsActives = async () => {
+  const response = await fetcher({ url: `${API_URL}/creator/twitch` })
+  return response.data
 }
 
-export const getServerSideProps = async (serverSideProps: GetServerSidePropsContext) => {
-  const [creators] = await getServerSideData({
-    serverSideProps,
-    promises: [CreatorModel.findWithTwitch()],
-  })
-  creators.push({
-    categories: ['frontend', 'backend', 'database'],
-    description: 'creator.description',
-    name: 'LecheroFett',
-    social: [{ type: 'twitch', userName: 'LecheroFett' }],
-  })
-  creators.push({
-    categories: ['frontend', 'backend', 'cloud', 'database'],
-    description: 'creator.description',
-    name: 'Matias Baldanza',
-    social: [{ type: 'twitch', userName: 'matiasbaldanza' }],
-  })
-  const creatorsIsLive = await Promise.all(creators.map(checkIsLive))
-  const creatorsConnected = creatorsIsLive.filter(creator => creator.online)
-  return { props: { creators: [...creatorsConnected, ...creatorsConnected, ...creatorsConnected, ...creatorsConnected, ] } }
+export const getServerSideProps = async ({ res }: GetServerSidePropsContext) => {
+  res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
+  const creators = await getCreatorsActives()
+  return { props: { creators } }
 }

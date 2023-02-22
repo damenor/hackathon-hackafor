@@ -11,11 +11,12 @@ export type CreatorCardTwitchProps = {
 
 export const CreatorCardTwitch: FC<CreatorCardTwitchProps> = ({ creator }) => {
   const { setSize } = useMouseFollowerContext()
+  const twitchUserName = creator.social.find((red: any) => red.type === 'twitch').userName
   return (
     <div className={styles.creatorCardTwitch}>
       <div className={styles.creatorCardTwitch_iframe}>
         <iframe
-          src={`https://player.twitch.tv/?channel=${creator.twitchUserName}&parent=${process.env.WEB_DOMAIN}&muted=true`}
+          src={`https://player.twitch.tv/?channel=${twitchUserName}&parent=${process.env.WEB_DOMAIN}&muted=true`}
           height="100%"
           width="100%"
           allowFullScreen

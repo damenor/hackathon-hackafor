@@ -1,25 +1,14 @@
-import { useEffect } from 'react'
 import type { GetServerSidePropsContext, NextPage } from 'next'
 
 import { HomeHero, HomeCreators, AppLayout } from '@/components'
-import { fetcher, getServerSideData } from '@/utils'
-import { CreatorModel, CreatorModelType } from '@/models'
+import { fetcher } from '@/utils'
+import { API_URL } from '@/services'
 
 type HomePageProps = {
-  creators: CreatorModelType
-}
-
-const getData = async () => {
-  const response = await fetcher({ url: `https://midudev-apis.midudev.workers.dev/uptime/matiasbaldanza` })
-  return response
+  creators: any[]
 }
 
 const HomePage: NextPage<HomePageProps> = ({ creators }) => {
-
-  useEffect(() => {
-    getData().then(console.log).catch(console.error)
-  }, [])
-
   return (
     <AppLayout>
       <HomeHero />
@@ -30,25 +19,13 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 
 export default HomePage
 
-const API_URL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 export const getCreatorsActives = async () => {
-  try {
-    const response = await fetcher({ url: `${API_URL}/creator` })
-    return response.data
-  } catch (error) {
-    console.error({ error })
-  }
+  const response = await fetcher({ url: `${API_URL}/creator` })
+  return response.data
 }
 
 export const getServerSideProps = async ({ res, ...props }: GetServerSidePropsContext) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
-
-  // const [creators] = await getServerSideData({
-  //   serverSideProps: { res, ...props },
-  //   promises: [CreatorModel.findActives()],
-  // })
-
-  // const creators = await getCreatorsActives()
-  const creators = await CreatorModel.findActives()
-  return { props: { creators: creators.map((data: any) => JSON.parse(JSON.stringify(data))) } }
+  const creators = await getCreatorsActives()
+  return { props: { creators } }
 }

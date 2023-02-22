@@ -20,7 +20,7 @@ export const DATA_CREATORS = [
       },
       {
         id: 'youtube',
-        url: 'https://midu.tube/'
+        url: 'https://www.youtube.com/c/midudev'
       },
       {
         id: 'discord',
