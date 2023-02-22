@@ -10,8 +10,8 @@ const createMockCreator = () => ({
   social: [{ type: ECreatorSocialType.Twitch, userName: 'LecheroFett' }],
 })
 
-type CheckIsLiveReturn = Promise<{ creator: any; online: boolean; rawUptime: string; twitchUserName: string }>
-const checkIsLive = async (creator: any): CheckIsLiveReturn => {
+type CheckIsLiveReturn = { creator: any; online: boolean; rawUptime: string; twitchUserName: string }
+const checkIsLive = async (creator: any): Promise<CheckIsLiveReturn> => {
   const twitchUserName = creator.social.find((red: any) => red.type === 'twitch').userName
   const response = (await fetcher({ url: `https://midudev-apis.midudev.workers.dev/uptime/${twitchUserName}` })) as any
   return { twitchUserName, ...(response.online ? { ...response } : { online: false }) }
