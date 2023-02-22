@@ -20,7 +20,7 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 export default HomePage
 
 console.log({process}, process.env)
-const API_URL = `${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
+const API_URL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 export const getCreatorsActives = async () => {
   try {
     const response = await fetcher({ url: `${API_URL}/creator` })
