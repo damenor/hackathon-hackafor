@@ -20,6 +20,7 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 export default HomePage
 
 const API_URL = `${process.env.VERCEL_URL}/api`
+console.log({process})
 export const getCreatorsActives = async () => {
   const response = await fetcher({ url: `${API_URL}/creator` })
   return response.data
