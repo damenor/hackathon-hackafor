@@ -1,6 +1,6 @@
 import { ErrorProps } from 'next/error'
 
-function Error({ statusCode, error }: ErrorProps) {
+function Error({ statusCode, error }: any) {
   return (
     <p>
       {statusCode
