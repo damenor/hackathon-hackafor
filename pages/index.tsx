@@ -43,11 +43,12 @@ export const getCreatorsActives = async () => {
 export const getServerSideProps = async ({ res, ...props }: GetServerSidePropsContext) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
 
-  const [creators] = await getServerSideData({
-    serverSideProps: { res, ...props },
-    promises: [CreatorModel.findActives()],
-  })
+  // const [creators] = await getServerSideData({
+  //   serverSideProps: { res, ...props },
+  //   promises: [CreatorModel.findActives()],
+  // })
 
   // const creators = await getCreatorsActives()
-  return { props: { creators } }
+  const creators = await CreatorModel.findActives()
+  return { props: { creators: creators.map((data: any) => JSON.parse(JSON.stringify(data))) } }
 }
