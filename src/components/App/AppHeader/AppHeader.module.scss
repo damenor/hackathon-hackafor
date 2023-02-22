@@ -1,0 +1,19 @@
+.appHeader {
+  height: 64px;
+  width: 64px;
+  @include positionFixed($top: calc(100% - 80px), $left: 50%, $zIndex: 999);
+  @include flex($y: center, $x: center, $gap: 16px);
+  transform: translateX(-50%);
+  // padding: 0 32px;
+  
+  @include mediaQuery($min: 768px) {
+    @include positionFixed($top: 16px, $left: 50%);
+  }
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 32px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}

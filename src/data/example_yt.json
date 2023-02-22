@@ -1,0 +1,367 @@
+{
+  "feed": {
+    "script": [
+      "",
+      ""
+    ],
+    "link": [
+      "",
+      ""
+    ],
+    "id": "yt:channel:",
+    "channelId": "",
+    "title": "midudev",
+    "author": {
+      "name": "midudev",
+      "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+    },
+    "published": "2018-05-15T19:39:14+00:00",
+    "entry": [
+      {
+        "id": "yt:video:G5131NON8KI",
+        "videoId": "G5131NON8KI",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "ChatGPT en tu VISUAL STUDIO CODE para programar más rápido",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-02-17T16:00:13+00:00",
+        "updated": "2023-02-17T16:07:12+00:00",
+        "group": {
+          "title": "ChatGPT en tu VISUAL STUDIO CODE para programar más rápido",
+          "content": "",
+          "thumbnail": "",
+          "description": "Esta extensión te permite usar los servicios de ChatGPT directamente en tu editor, de forma que puedes programar mucho más rápido. Te explica el código, te lo genera a partir de un comentario... Necesitas usar tu API Key de OpenAI pero una vez lo tienes, funciona genial. ¡No te lo pierdas!",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:om1YcE8cHH4",
+        "videoId": "om1YcE8cHH4",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "Trucazo de JavaScript para llamar la atención de tus usuarios",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-02-14T15:12:45+00:00",
+        "updated": "2023-02-15T06:21:41+00:00",
+        "group": {
+          "title": "Trucazo de JavaScript para llamar la atención de tus usuarios",
+          "content": "",
+          "thumbnail": "",
+          "description": "Este trucazo con JavaScript te permitirá intentar volver a llamar la atención de tus usuarios. Muchas tiendas online y aplicaciones ya lo usan, para que vuelvas a poner el foco en su pestaña. ¡Y lo puedes hacer super fácil! ¿Conocías este truco?",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:TeRcMxdd4PM",
+        "videoId": "TeRcMxdd4PM",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "Extensión que ahorra tiempo en Visual Studio Code",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-02-12T15:00:15+00:00",
+        "updated": "2023-02-12T15:05:11+00:00",
+        "group": {
+          "title": "Extensión que ahorra tiempo en Visual Studio Code",
+          "content": "",
+          "thumbnail": "",
+          "description": "Esta extensión te muestra los errores de tu código en línea. Sirven para ESLint o TypeScript, por ejemplo, y así no tienes que hacer hover para ver qué problema es. ¡Sin duda, super necesaria! #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:Yuqm5JfpIC4",
+        "videoId": "Yuqm5JfpIC4",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "Checkbox animado y personalizado con HTML y CSS. Sin JavaScript.",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-02-11T15:00:18+00:00",
+        "updated": "2023-02-11T15:29:48+00:00",
+        "group": {
+          "title": "Checkbox animado y personalizado con HTML y CSS. Sin JavaScript.",
+          "content": "",
+          "thumbnail": "",
+          "description": "No necesitas usar JavaScript para crear y manejar un Checkbox personalizado. Gracias al uso de un label y el pseudo-elemento after, puedes estilarlo perfectamente. En un short no me da tiempo de hablarte de todas las implicaciones de accesibilidad, por favor, tenlo en cuenta a la hora de implementarlo en tu página web. #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:37w2B3ljddM",
+        "videoId": "37w2B3ljddM",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "ADMINISTRA tus APIS en VSCODE con esta EXTENSIÓN",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-02-09T14:30:00+00:00",
+        "updated": "2023-02-10T06:54:45+00:00",
+        "group": {
+          "title": "ADMINISTRA tus APIS en VSCODE con esta EXTENSIÓN",
+          "content": "",
+          "thumbnail": "",
+          "description": "Esta extensión es una alternativa buenísima de Postman y totalmente gratuita. Te permite hacer peticiones a tus APIs, documentarlas, ver la respuesta y transformar rápidamente la respuesta en interfaces de API o el código de Python. Se llama RapidAPI Client y te ayuda un montón. #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:vgyWwyv3KDo",
+        "videoId": "vgyWwyv3KDo",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "Crea un Loader moderno con HTML y CSS",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-02-08T16:00:27+00:00",
+        "updated": "2023-02-08T16:11:13+00:00",
+        "group": {
+          "title": "Crea un Loader moderno con HTML y CSS",
+          "content": "",
+          "thumbnail": "",
+          "description": "Te enseño a crear un loader de carga para tu página web o proyecto sólo usando HTML y CSS.",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:8Rc18lfl68c",
+        "videoId": "8Rc18lfl68c",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡Crea una INCREÍBLE la galería de imágenes para tu WEB!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-01-26T19:15:00+00:00",
+        "updated": "2023-01-27T07:04:15+00:00",
+        "group": {
+          "title": "¡Crea una INCREÍBLE la galería de imágenes para tu WEB!",
+          "content": "",
+          "thumbnail": "",
+          "description": "Usando un poco de HTML y CSS puedes crear una galería de imágenes visualmente impactante. Sin necesidad de JavaScript y con un rendimiento óptimo. #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:Z-jUZ6aXY_M",
+        "videoId": "Z-jUZ6aXY_M",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "Mejora tu lógica de programación con estos recursos",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-01-25T13:56:07+00:00",
+        "updated": "2023-01-28T07:30:16+00:00",
+        "group": {
+          "title": "Mejora tu lógica de programación con estos recursos",
+          "content": "",
+          "thumbnail": "",
+          "description": "Estos recursos te permiten practicar y mejorar tu lógica de programación totalmente gratis y en diferentes lenguajes de programación. #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:uyEUVgNMvGI",
+        "videoId": "uyEUVgNMvGI",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡Necesitas cambiar estas configuraciones de Visual Studio Code!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-01-17T19:00:06+00:00",
+        "updated": "2023-01-17T19:05:07+00:00",
+        "group": {
+          "title": "¡Necesitas cambiar estas configuraciones de Visual Studio Code!",
+          "content": "",
+          "thumbnail": "",
+          "description": "No dejes Visual Studio Code tal y como te lo encontraste. ¡Mejora su funcionamiento cambiando estas configuraciones! Mucha gente no saben ni que existen y hace que puedas mejorar mucho tu productividad cambiando sus valores por defecto. O, al menos, dejarlo más bonito. Que también es importante. ¡Déjame en los comentarios cuál ha sido tu favorita!",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:cs6DBJhc7qE",
+        "videoId": "cs6DBJhc7qE",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡Trucazo! Responsive en 3 líneas de CSS usando Grid sin Media Queries",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-01-10T15:11:22+00:00",
+        "updated": "2023-01-11T06:31:22+00:00",
+        "group": {
+          "title": "¡Trucazo! Responsive en 3 líneas de CSS usando Grid sin Media Queries",
+          "content": "",
+          "thumbnail": "",
+          "description": "🤯 ¡Te enseño a crear una cuadrícula responsive en CSS sin media queries! 💾 Guarda el vídeo para tenerlo siempre a mano y no perderte ningún detalle. 👍 Y es que desde que Grid ha llegado a CSS, la creación de cuadrículas se ha vuelto mucho más sencilla y potente. 🤩 Usando la propiedad grid-template-columns y la función repeat, podemos crear cuadrículas con tantas columnas como queramos, sin necesidad de escribir tantas líneas de código. 📐 Con minmax le decimos que el espacio debe ser de mínimo 150px, de forma que si la columna es menor a eso, entonces creará menos columnas para poder caber. 💬 ¿Qué te parece el resultado? ¿Te animas a crear tu propia cuadrícula responsive? #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:7gtWYUJRD48",
+        "videoId": "7gtWYUJRD48",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡Esta extensión de Visual Studio Code te AHORRA MUCHO TIEMPO!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2023-01-04T16:15:00+00:00",
+        "updated": "2023-01-05T10:08:41+00:00",
+        "group": {
+          "title": "¡Esta extensión de Visual Studio Code te AHORRA MUCHO TIEMPO!",
+          "content": "",
+          "thumbnail": "",
+          "description": "¿Te imaginas poder ver el valor de tus console.log en el propio editor sin necesidad de salir de él? ¡Esta extensión te permite hacerlo y te ayuda a mejorar tu productividad!",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:NGmIZD2bXsE",
+        "videoId": "NGmIZD2bXsE",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡5 CONSEJOS para que te SUBAN el SUELDO en PROGRAMACIÓN!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2022-12-22T19:00:07+00:00",
+        "updated": "2022-12-26T16:56:57+00:00",
+        "group": {
+          "title": "¡5 CONSEJOS para que te SUBAN el SUELDO en PROGRAMACIÓN!",
+          "content": "",
+          "thumbnail": "",
+          "description": "¡Todo el mundo quiere mejorar su salario en programación! Pero... ¿hay que programar más y mejor y ya está? ¡PUES NO! 💶 -85% de descuento en Elsa Speak: https://midu.link/elsacupon 🇬🇧 Prueba Elsa Speak gratis: https://midu.link/elsagratis 📖 Libro \"El Arte de Presentar\": https://amzn.to/3FR0a6D Te dejo 5 consejos que a mi me han servido para llegar a ganar más de 80.000 € al año en España. 00:00 - Introducción 00:30 - Consejo 1 01:51 - Consejo 2 02:52 - Consejo 3 03:59 - Consejo 4 06:07 - Consejo 5 07:45 - Tomas falsas",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:Q8SX7gaA-wI",
+        "videoId": "Q8SX7gaA-wI",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡No uses filter, ni find, ni un bucle normal para hacer esto en JavaScript!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2022-12-16T14:45:00+00:00",
+        "updated": "2022-12-20T17:27:11+00:00",
+        "group": {
+          "title": "¡No uses filter, ni find, ni un bucle normal para hacer esto en JavaScript!",
+          "content": "",
+          "thumbnail": "",
+          "description": "Usa este método para encontrar si un elemento de un Array cumple una condición. Es la forma correcta de hacerlo, la más corta y fácil de leer y mantener. ¡Así mejorará tu código! 👍",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:-XTuUE7_Kzg",
+        "videoId": "-XTuUE7_Kzg",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "Libros para mejorar como programador... ¡que no son de programación!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2022-12-15T14:45:00+00:00",
+        "updated": "2023-01-13T00:12:34+00:00",
+        "group": {
+          "title": "Libros para mejorar como programador... ¡que no son de programación!",
+          "content": "",
+          "thumbnail": "",
+          "description": "Con estos libros puedes mejorar en conceptos y aptitudes que están relacionadas con la programación... aunque no son exactamente de programación. Por ejemplo, dar feedback con Radical Candor. Practicar inglés con English is Not Easy. O el arte de presentar, para mejorar tus presentaciones. El arte de presentar: https://amzn.to/3hp0DF5 Radical Candor: https://amzn.to/3j0Aahq English is not easy: https://amzn.to/3j2WC9C",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      },
+      {
+        "id": "yt:video:U7HTX-CLOUc",
+        "videoId": "U7HTX-CLOUc",
+        "channelId": "UC8LeXCWOalN8SxlrPcG-PaQ",
+        "title": "¡Espectacular efecto de bordes degradados con CSS!",
+        "link": "",
+        "author": {
+          "name": "midudev",
+          "uri": "https://www.youtube.com/channel/UC8LeXCWOalN8SxlrPcG-PaQ"
+        },
+        "published": "2022-12-14T14:45:02+00:00",
+        "updated": "2022-12-14T14:46:18+00:00",
+        "group": {
+          "title": "¡Espectacular efecto de bordes degradados con CSS!",
+          "content": "",
+          "thumbnail": "",
+          "description": "Te enseño a crear este efecto con bordes degradados. Usando un poco de CSS puedes estilar tus cards y darle un toque mucho más moderno. Así creas un efecto espectacular para llamar la atención del usuario. #shorts",
+          "community": {
+            "starRating": "",
+            "statistics": ""
+          }
+        }
+      }
+    ]
+  }
+}

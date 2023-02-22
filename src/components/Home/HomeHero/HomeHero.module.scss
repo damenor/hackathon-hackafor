@@ -1,0 +1,41 @@
+.homeHero {
+  @include flex($direction: column, $x: center);
+  padding: 128px 0;
+
+  &_title {
+    @include textGradient();
+    font-size: clamp(2rem, 10vw, 10rem);
+    margin-top: clamp(1rem, 10vw, 10rem);
+    font-weight: bold;
+    text-align: center;
+    
+  }
+
+  &_paragraph {
+    font-size: clamp(1.5rem, 2.5vw, 3rem);
+    max-width: 768px;
+    margin: clamp(16px, 2.5vw, 64px) 0;
+    padding: 0 64px;
+    text-align: center;
+  }
+
+  &_button {
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+    padding: 16px 32px;
+    font-size: 2rem;
+    border-radius: 32px;
+    display: flex;
+    box-shadow: 0 0 10px var(--color-primary);
+    transition: all 0.3s;
+    &:hover {
+      box-shadow: 0 0 15px var(--color-primary), 0 0 30px var(--color-primary) !important;
+    }
+    
+    &:active {
+      scale: 0.9;
+      box-shadow: 0 0 0 var(--color-bg), 0 0 0 var(--color-bg) !important;
+    }
+  }
+  
+}

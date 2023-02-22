@@ -1,6 +1,20 @@
-import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+import '@/styles/globals.scss'
+
+import { AppFont } from '@/components'
+import { MouseFollowerProvider } from '@/ui'
+
+const App = ({ Component, pageProps }: AppProps) => {
+
+  return (
+    <>
+      <AppFont />
+      <MouseFollowerProvider>
+        <Component {...pageProps} />
+      </MouseFollowerProvider>
+    </>
+  )
 }
+
+export default App

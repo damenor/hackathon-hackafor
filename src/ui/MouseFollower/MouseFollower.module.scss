@@ -1,0 +1,47 @@
+.mouseFollower {
+  --mouse-follower-position: calc(var(--mouse-follower-size) / 2 - var(--mouse-follower-size));
+  position: fixed;
+  // background-color: var(--color-bg-contrast);
+  // mix-blend-mode: difference;
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  left: var(--mouse-follower-position);
+  top: var(--mouse-follower-position);
+  width: var(--mouse-follower-size);
+  height: var(--mouse-follower-size);
+  z-index: 9999;
+  animation: fadeIn 2.5s forwards;
+  scale: 0;
+  opacity: 0;
+
+  transition: width .2s, height .2s;
+
+  &__hide {
+    --mouse-follower-size: 0;
+  }
+  &__small {
+    --mouse-follower-size: 20px;
+  }
+  &__normal {
+    --mouse-follower-size: 40px;
+  }
+  &__big {
+    --mouse-follower-size: 80px;
+  }
+
+  @media only screen and (hover: none) and (pointer: coarse){
+    display: none;
+  }
+  @keyframes fadeIn {
+    75% {
+      opacity: 0;
+      scale: 0;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}
+
