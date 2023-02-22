@@ -3,12 +3,24 @@ import type { GetServerSidePropsContext, NextPage } from 'next'
 import { HomeHero, HomeCreators, AppLayout } from '@/components'
 import { fetcher } from '@/utils'
 import { CreatorModelType } from '@/models'
+import { useEffect } from 'react'
 
 type HomePageProps = {
   creators: CreatorModelType
 }
 
+const getData = async () => {
+  const response = await fetcher({ url: `https://midudev-apis.midudev.workers.dev/uptime/matiasbaldanza` })
+  return response
+}
+
 const HomePage: NextPage<HomePageProps> = ({ creators }) => {
+
+  useEffect(() => {
+    const response = getData()
+    console.log({ response })
+  }, [])
+
   return (
     <AppLayout>
       <HomeHero />
@@ -19,7 +31,6 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 
 export default HomePage
 
-console.log({process}, process.env)
 const API_URL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api`
 export const getCreatorsActives = async () => {
   try {

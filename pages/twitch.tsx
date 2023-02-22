@@ -41,10 +41,15 @@ const getServerSideData = async ({ serverSideProps, promises }: GetServerSideDat
   return promisesResponse.map((data: any) => JSON.parse(JSON.stringify(data)))
 }
 
-const checkIsLive = async (creator: any): Promise<{ creator: any; online: boolean; rawUptime: string; twitchUserName: string }> => {
+type CheckIsLiveReturn = Promise<{ creator: any; online: boolean; rawUptime: string; twitchUserName: string }>
+const checkIsLive = async (creator: any) => {
   const twitchUserName = creator.social.find((red: any) => red.type === 'twitch').userName
-  const response = (await fetcher({ url: `https://midudev-apis.midudev.workers.dev/uptime/${twitchUserName}` })) as any
-  return { ...creator, twitchUserName, ...(response.online ? { ...response } : { online: false }) }
+  try {
+    const response = (await fetcher({ url: `https://midudev-apis.midudev.workers.dev/uptime/${twitchUserName}` })) as any
+    return { ...creator, twitchUserName, ...(response.online ? { ...response } : { online: false }) }
+  } catch (error) {
+    throw new Error(JSON.stringify(error))
+  }
 }
 
 export const getServerSideProps = async (serverSideProps: GetServerSidePropsContext) => {
