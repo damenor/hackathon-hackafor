@@ -21,15 +21,6 @@ const DEFAULT_CREATORS = [
     active: true,
     _id: '63f65b1b2128836cb0ef86fbdsfasdf1',
   },
-  {
-    categories: ['frontend', 'backend', 'database'],
-    description: 'creator.description',
-    name: 'niv3k_el_pato',
-    social: [{ type: ECreatorSocialType.Twitch, userName: 'niv3k_el_pato' }],
-    web: 'https://bluuweb.github.io',
-    active: true,
-    _id: '63f65b1b2128836cb0ef86fbdsfasdf2',
-  },
 ]
 
 const getTwitchUserName = (creator: CreatorType) => creator.social.find((red) => red.type === ECreatorSocialType.Twitch)?.userName

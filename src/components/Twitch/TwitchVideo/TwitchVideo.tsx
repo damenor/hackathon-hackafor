@@ -4,7 +4,7 @@ import { useMouseFollowerContext } from '@/ui'
 import { CreatorTwitchType, ECreatorSocialType } from '@/types'
 
 import styles from './TwitchVideo.module.scss'
-import { useTmi } from '@/utils'
+import { TwitchVideoChat } from './TwitchVideChat'
 
 export type TwitchVideoProps = {
   creator: CreatorTwitchType
@@ -24,21 +24,6 @@ const VideoIframe = ({ src }: any) => {
       ></iframe>
     </div>
   )
-}
-
-export const TwitchVideoChat: FC<TwitchVideoProps> = ({ creator }) => {
-  const { messages } = useTmi(creator.twitchUserName)
-
-  return (
-    <div>
-      { messages.map(message => (
-        <div>
-          <p>{message.text}</p>
-        </div>
-      )) }
-    </div>
-  )
-
 }
 
 export const TwitchVideo: FC<TwitchVideoProps> = ({ creator }) => {
