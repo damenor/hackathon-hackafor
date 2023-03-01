@@ -304,6 +304,10 @@ export const DATA_CREATORS = [
     categories: ['frontend'],
     social: [
       {
+        id: 'github',
+        url: 'https://github.com/Aforina'
+      },
+      {
         id: 'twitch',
         url: 'https://www.twitch.tv/afor_digital'
       }

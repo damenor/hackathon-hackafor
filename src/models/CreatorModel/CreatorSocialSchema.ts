@@ -1,25 +1,8 @@
-import { modelOptions, prop } from '@typegoose/typegoose'
+import { Schema } from 'mongoose'
 
-export type CreatorSocial = {
-  type: ECreatorSocialType
-  userName: string
-}
+import { CreatorSocial } from '@/types'
 
-export enum ECreatorSocialType {
-  Discord = 'discord',
-  Github = 'github',
-  Instagram = 'instagram',
-  Tiktok = 'tiktok',
-  Twitch = 'twitch',
-  Twitter = 'twitter',
-  Youtube = 'youtube',
-}
-
-@modelOptions({ schemaOptions: { _id: false } })
-export class CreatorSocialSchema {
-  @prop({ enum: ECreatorSocialType, required: true })
-  type: ECreatorSocialType
-
-  @prop({ type: String, required: true })
-  userName: string
-}
+export const CreatorSocialSchema = new Schema<CreatorSocial>({
+  type: { type: String, required: true },
+  userName: { type: String, required: true },
+})

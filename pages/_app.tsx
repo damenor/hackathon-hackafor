@@ -1,3 +1,4 @@
+// https://github.com/JoseRFelix/page-transition-tutorial
 import type { AppProps } from 'next/app'
 
 import '@/styles/globals.scss'

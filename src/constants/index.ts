@@ -1,5 +1,4 @@
-import { ECreatorSocialType } from './../models/CreatorModel/CreatorSocialSchema'
-import { EUserRole } from '@/models'
+import { EUserRole, ECreatorSocialType } from '@/models'
 
 export const CREATOR_CATEGORIES = ['backend', 'ciberseguridad', 'cloud', 'database', 'datascience', 'frontend', 'mobile', 'uiux']
 
@@ -12,7 +11,6 @@ export const CREATOR_SOCIAL = {
   twitch: { label: 'Twitch', icon: '', value: ECreatorSocialType.Twitch },
   twitter: { label: 'Twitter', icon: '', value: ECreatorSocialType.Twitter },
   youtube: { label: 'Youtube', icon: '', value: ECreatorSocialType.Youtube },
-
 }
 
 export const USER_ROLES = [

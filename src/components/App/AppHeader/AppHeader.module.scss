@@ -1,19 +1,55 @@
 .appHeader {
-  height: 64px;
-  width: 64px;
-  @include positionFixed($top: calc(100% - 80px), $left: 50%, $zIndex: 999);
-  @include flex($y: center, $x: center, $gap: 16px);
-  transform: translateX(-50%);
-  // padding: 0 32px;
+  height: var(--app-header-height);
+  @include flex($y: center, $x: center);
+  @include positionFixed($top: calc(100% - var(--app-header-height)), $left: 0, $zIndex: 999);
+  backdrop-filter: blur(8px);
+  padding: 0 16px;
+  width: 100%;
   
   @include mediaQuery($min: 768px) {
-    @include positionFixed($top: 16px, $left: 50%);
+    @include positionFixed($top: 0, $left: 0);
   }
 
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 32px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  a {
+    cursor: none;
+  }
+  
+  &_content {
+    @include flex($y: center, $x: space-between, $gap: 16px);
+    max-width: 1400px;
+    width: 100%;
+  }
+
+  &_title {
+    @include textGradient();
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    font-weight: bold;
+  }
+
+  &_left,
+  &_right {
+    @include flex($y: center, $gap: 16px);
+    flex: 1;
+  }
+  
+  &_right {
+    justify-content: flex-end
+  }
+
+  &_button {
+    @include transition;
+    background-color: var(--color-secondary);
+    border-radius: 32px;
+    color: var(--color-secondary-contrast);
+    font-weight: bold;
+    padding: 8px 16px;
+    &:hover {
+      box-shadow: 0 0 8px var(--color-secondary), 0 0 16px var(--color-secondary);
+    }
+    
+    &:active {
+      box-shadow: 0 0 0 var(--color-bg), 0 0 0 var(--color-bg);
+      scale: 0.9;
+    }
+  }
 }

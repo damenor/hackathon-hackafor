@@ -20,3 +20,8 @@
     transform: skewY(#{$skewAngle});
   }
 }
+
+@mixin containerColor($color) {
+  background-color: var(--color-#{$color});
+  color: var(--color-#{$color}-contrast);
+}

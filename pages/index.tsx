@@ -10,9 +10,11 @@ type HomePageProps = {
 
 const HomePage: NextPage<HomePageProps> = ({ creators }) => {
   return (
-    <AppLayout>
-      <HomeHero />
+    <AppLayout mainStyle={{ paddingTop: 'var(--app-header-height' }}>
       <HomeCreators creators={creators} />
+      {/* <HomeHero /> */}
+
+      <div style={{ height: '300px' }}></div>
     </AppLayout>
   )
 }
@@ -20,12 +22,12 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
 export default HomePage
 
 export const getCreatorsActives = async () => {
-  const response = await fetcher({ url: `${API_URL}/creator` })
+  const response = await fetcher<any[]>({ url: `${API_URL}/creator` })
   return response.data
 }
 
 export const getServerSideProps = async ({ res, ...props }: GetServerSidePropsContext) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
   const creators = await getCreatorsActives()
-  return { props: { creators } }
+  return { props: { creators: creators.sort(() => Math.random() > 0.5 ? -1 : 1) } }
 }

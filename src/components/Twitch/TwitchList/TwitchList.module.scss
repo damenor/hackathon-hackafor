@@ -1,0 +1,53 @@
+.twitchList {
+  padding-bottom: var(--app-header-height);
+  
+  &_title {
+    @include containerWavy;
+    @include flex($x: center);
+    padding: clamp(48px, 10vw, 96px) 0;
+    margin: 48px 0;
+    color: var(--color-bg);
+    h2 {
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      font-weight: bold;
+      max-width: 450px;
+      text-align: center;
+      padding: 32px;
+    }
+  }
+  
+  &_content {
+    max-width: 960px;
+    padding: 0 16px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+
+  &_item {
+    @include flex;
+    background-color: var(--color-bg-secondary);
+    padding: 8px;
+    border-radius: 48px;
+    img {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+    }
+    &Data {
+      padding: 8px 16px;
+    }
+    &Name {
+      @include textTruncate;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    &UserName {
+      color: var(--color-grey);
+      font-size: 0.8rem;
+    }
+  }
+
+}

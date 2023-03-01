@@ -2,25 +2,29 @@
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 999;
+  z-index: 1000;
   transition: all 0.4s;
   &_title {
-    animation: fadeOut 1000ms forwards;
-    background: linear-gradient(45deg, var(--color-primary) 20%, var(--color-secondary) 80%);
-    background-clip: text;
+    animation: fadeOut 1200ms forwards;
+    // background: linear-gradient(45deg, var(--color-primary) 20%, var(--color-secondary) 80%);
+    // background-clip: text;
     color: var(--color-primary-contrast);
     font-size: clamp(2rem, 10vw, 10rem);
     font-weight: bold;
-    left: 50%;
     opacity: 1;
     position: fixed;
     text-align: center;
+    left: 50%;
     top: 50%;
     transform-origin: top;
     transition: all 0.4s;
     z-index: 2;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include flex($direction: column, $x: center);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    h1 {
+      @include textGradient;
+    }
   }
   &_element {
     position: absolute;
@@ -30,14 +34,14 @@
     &__first {
       background: var(--color-primary);
       transform: scaleY(0);
-      animation: revealAnim 2000ms;
+      animation: revealAnim 1700ms;
     }
     
     &__second {
       background: var(--color-secondary);
       transform: scaleY(0);
       animation: revealAnim 1500ms;
-      animation-delay: 250ms;
+      animation-delay: 50ms;
     }
     
     &__third {
@@ -45,14 +49,14 @@
       height: 100vh;
       background: var(--color-bg-secondary);
       animation: revealAnim 1000ms forwards;
-      animation-delay: 500ms;
+      animation-delay: 300ms;
       transition: opacity 0.4s;
     }
 
     &__four {
       background: var(--color-bg);
       animation: revealContentAnim forwards;
-      animation-delay: 1000ms;
+      animation-delay: 800ms;
     }
   }
 

@@ -1,6 +1,7 @@
 .homeHero {
   @include flex($direction: column, $x: center);
-  padding: 128px 0;
+  // padding: 128px 0;
+  // padding-top: 120px;
 
   &_title {
     @include textGradient();
@@ -8,20 +9,22 @@
     margin-top: clamp(1rem, 10vw, 10rem);
     font-weight: bold;
     text-align: center;
-    
   }
 
   &_paragraph {
     font-size: clamp(1.5rem, 2.5vw, 3rem);
     max-width: 768px;
-    margin: clamp(16px, 2.5vw, 64px) 0;
-    padding: 0 64px;
+    // margin: clamp(16px, 2.5vw, 64px) 0;
+    // padding: 0 64px;
+    padding: 0 32px;
     text-align: center;
+    // color: var(--color-primary);
   }
 
   &_button {
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    // background-color: var(--color-primary);
+    // color: var(--color-primary-contrast);
+    @include containerColor(primary);
     padding: 16px 32px;
     font-size: 2rem;
     border-radius: 32px;
@@ -29,12 +32,23 @@
     box-shadow: 0 0 10px var(--color-primary);
     transition: all 0.3s;
     &:hover {
-      box-shadow: 0 0 15px var(--color-primary), 0 0 30px var(--color-primary) !important;
+      box-shadow: 0 0 15px var(--color-primary), 0 0 30px var(--color-primary);
     }
     
     &:active {
       scale: 0.9;
-      box-shadow: 0 0 0 var(--color-bg), 0 0 0 var(--color-bg) !important;
+      box-shadow: 0 0 0 var(--color-bg), 0 0 0 var(--color-bg);
+    }
+  }
+
+  &_wavy {
+    @include containerWavy($bg: var(--color-secondary));
+    @include flex($x: center);
+    padding: 96px 16px;
+    width: 100%;
+    p {
+      color: var(--color-secondary-contrast);
+      max-width: 768px;
     }
   }
   

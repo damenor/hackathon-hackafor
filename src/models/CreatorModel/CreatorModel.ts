@@ -1,67 +1,45 @@
-import { getModelForClass, modelOptions, prop, ReturnModelType } from '@typegoose/typegoose'
-import { models } from 'mongoose'
+import { Model, model, models, Schema } from 'mongoose'
 
-import { defaultExcludeDb, defaultSchemaOptions } from '@/utils'
-import { CreatorSocial, CreatorSocialSchema, ECreatorSocialType } from './CreatorSocialSchema'
+import { CreatorType, ECreatorSocialType } from '@/types'
 
-@modelOptions({
-  schemaOptions: {
-    ...defaultSchemaOptions,
-    collection: 'creators',
-  },
+import { CreatorSocialSchema } from './CreatorSocialSchema'
+
+export interface CreatorStatic extends Model<CreatorType> {
+  findActives: (isDesactivated: boolean) => CreatorType[]
+  findWithSocial: (socialType: ECreatorSocialType) => CreatorType[]
+  findWithTwitch: () => CreatorType[]
+  findWithYTChannelId: () => CreatorType[]
+}
+
+const CreatorSchema = new Schema<CreatorType, CreatorStatic>({
+  name: { type: String, required: true },
+  description: { type: String, required: true },
+  active: { type: Boolean, default: false },
+  avatar: { type: String, nullable: true },
+  youtubeChannelId: { type: String, nullable: true },
+  categories: [{ type: String }],
+  web: { type: String, nullable: true },
+  social: [{ type: CreatorSocialSchema }]
+}, {
+  timestamps: true,
+  versionKey: false
 })
-class CreatorSchema {
-  @prop({ type: String, required: true })
-  name: string
 
-  @prop({ type: String, required: true })
-  description: string
 
-  @prop({ type: () => [String], required: true })
-  categories: string[]
+CreatorSchema.static('findWithYTChannelId', function() {
+  return this.find({ $nor: [{ youtubeChannelId: null }] })
+})
 
-  @prop({ type: () => [CreatorSocialSchema] })
-  social: CreatorSocial[]
+CreatorSchema.static('findActives', function(isDesactivated = false) {
+  return this.find({ $nor: [{ isDesactivated }] })
+})
 
-  @prop({ type: Boolean, default: false })
-  active: boolean
+CreatorSchema.static('findWithTwitch', function() {
+  return this.findWithSocial(ECreatorSocialType.Twitch)
+})
 
-  @prop({ type: String, nullable: true })
-  avatar?: string
+CreatorSchema.static('findWithSocial', function(socialType: ECreatorSocialType) {
+  return this.find({ 'social.type': socialType })
+})
 
-  @prop({ type: String, nullable: true })
-  youtubeChannelId?: string
-
-  @prop({ type: String, nullable: true })
-  web?: string
-
-  static async findWithYTChannelId(this: CreatorModelType) {
-    return this.find({ $nor: [{ youtubeChannelId: null }] }, defaultExcludeDb)
-  }
-
-  static async findActives(this: CreatorModelType, isDesactivated = false) {
-    return this.find({ $nor: [{ isDesactivated }] }, defaultExcludeDb)
-  }
-
-  static async findWithTwitch(this: CreatorModelType) {
-    return this.findWithSocial(ECreatorSocialType.Twitch)
-  }
-
-  static async findWithSocial(this: CreatorModelType, socialType: ECreatorSocialType) {
-    return this.find({ 'social.type': socialType }, defaultExcludeDb)
-  }
-}
-
-const CreatorModel = getModelForClass(CreatorSchema)
-export type CreatorModelType = ReturnModelType<typeof CreatorSchema>
-
-export type Creator = {
-  categories: string[]
-  description: string
-  name: string
-  social: CreatorSocial[]
-  web?: string
-  active: boolean
-}
-
-export default (models.CreatorModel as CreatorModelType) || CreatorModel
+export const CreatorModel = models.Creator as CreatorStatic || model<CreatorType, CreatorStatic>('Creator', CreatorSchema)

@@ -19,9 +19,9 @@ export const CreatorCardTwitchList: FC<CreatorCardTwitchListProps> = ({ creators
         fontWeight: 'bold'
       }}>Otros creadores en directo</h3>
       <div className={styles.creatorCardTwitch_listContent}>
-        { creators.map(creator => (
+        {/* { creators.map(creator => (
           <CreatorCardTwitchData creator={creator} onClick={onSelect} />
-        )) }
+        )) } */}
       </div>
     </div>
   )

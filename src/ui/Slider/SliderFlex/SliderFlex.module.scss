@@ -1,0 +1,142 @@
+.sliderFlex {
+  @mixin shadows($deg: 0deg, $isTop: true) {
+    background: linear-gradient(#{$deg}, transparent, var(--color-bg) 85%);
+    content: '';
+    height: 128px;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    @if $isTop {
+      top: 0;
+    }
+    @if $isTop == false {
+      bottom: 0;
+    }
+  }
+
+  @include flex($direction: column);
+  height: 100%;
+  min-height: calc(100vh - var(--app-header-height));
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    @include shadows;
+  }
+  &::after {
+    @include shadows($deg: 180deg, $isTop: false);
+  }
+
+  @include mediaQuery($min: 768px) {
+    flex-direction: row;
+  }
+
+  &_item {
+    @include flex($x: stretch);
+    flex: 1;
+    min-height: 48px;
+    // cursor: pointer;
+    transition: all 0.35s ease;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    overflow: hidden;
+    @include transition;
+
+    &:before {
+      @include positionAbsolute($top: 0, $left: 0);
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: #191919e6;
+    }
+
+    &__active {
+      flex: 6;
+      min-height: 450px;
+      // cursor: default;
+      &:before {
+        background: linear-gradient(180deg, rgba(15, 15, 15, 0) 0%, var(--color-bg) 100%);
+      }
+    }
+
+    &Name {
+      @include positionAbsolute($top: 50%, $left: 50%, $zIndex: 3);
+      @include textTruncate;
+      font-size: 24px;
+      font-weight: bold;
+      opacity: 1;
+      padding: 0 8px;
+      text-align: center;
+      text-transform: uppercase;
+      transform-origin: 0 0;
+      transform: translate(-50%, -50%) rotate(0deg);
+      transition: top 0.35s, opacity 0.15s;
+      width: 100%;
+
+      &__active {
+        opacity: 0;
+        top: 200% !important;
+      }
+      
+      @include mediaQuery($min: 768px) {
+        font-size: 32px;
+        left: 50%;
+        top: 95%;
+        transform: translate(-20px, -50%) rotate(-90deg);
+        width: auto;
+      }
+    }
+
+    &SectionContent {
+      align-self: flex-end;
+      opacity: 0;
+      position: relative;
+      transition: all 0.35s 0.1s ease-out;
+      width: 100%;
+      z-index: 3;
+
+      &__active {
+        opacity: 1;
+      }
+
+      &Inner {
+        @include positionAbsolute($bottom: 0, $left: 0);
+        @include transition;
+        opacity: 0;
+        padding: 48px 24px;
+
+        &__active {
+          opacity: 1;
+        }
+
+        @include mediaQuery($min: 768px) {
+          padding: 80px 40px;
+        }
+
+        &Bio {
+
+          h2 {
+            font-size: 24px;
+            line-height: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+
+            @include mediaQuery($min: 768px) {
+              font-size: 32px;
+              line-height: 32px;
+            }
+
+            @include mediaQuery($min: 1280px) {
+              font-size: 48px;
+              line-height: 48px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

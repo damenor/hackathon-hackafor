@@ -1,44 +1,28 @@
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import tmi from 'tmi.js'
 
-// const tmiClient = new tmi.Client({
-//   options: { debug: false },
-//   // channels: ['illojuan', 'rivers_gg']
-//   channels: ['afor_digital']
-// })
+export const useTmi = (channel: string) => {
 
-// const chatClient = new ChatClient({ channels: ['afor_digital'] });
-
-
-export const useTmi = () => {
+  const tmiClient = useRef<tmi.Client>()
+  const [messages, setMessages] = useState<any[]>([])
 
   useEffect(() => {
-    (async () => {
-      // await tmiClient.connect()
-      // await chatClient.connect()
-      // const eventOnMessage = chatClient.onMessage((channel: string, user: string, text: string, msg: PrivateMessage) => {
-      //   console.log({ user, msg, text, channel })
-      // })
-      // return chatClient.removeListener(eventOnMessage)
-    })()
-    // tmiClient.on('message', (channel, tags, message, self) => {
-    //   // console.log({ channel, displayName: tags['display-name'], message })
-    //   console.log({ displayName: tags['display-name'], tags })
-    // })
-    // tmiClient.on('disconnected', console.log)
-    // return () => {
-    //   tmiClient.removeAllListeners()
-    // }
+    connectListener()
+    return () => {
+      tmiClient.current?.removeAllListeners()
+    }
   }, [])
-
-  const onAdd = async () => {
-    // await tmiClient.join('illojuan')
+  
+  const connectListener = async () => {
+    tmiClient.current = new tmi.Client({ options: { debug: false }, channels: [channel] })
+    await tmiClient.current?.connect()
+    tmiClient.current?.on('message', (channel, tags, text) => {
+      console.log({ channel, displayName: tags['display-name'], tags, text })
+      const nextMessage = { channel, displayName: tags['display-name'], tags, text }
+      setMessages(prevState => [...prevState, nextMessage])
+    })
   }
 
-  const onExit = async () => {
-    // await tmiClient.part('illojuan')
-  }
-
-  return { onAdd, onExit }
+  return { messages }
 
 }
