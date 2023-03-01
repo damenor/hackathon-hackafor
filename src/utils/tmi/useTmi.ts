@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import tmi from 'tmi.js'
 
 export const useTmi = (channel: string) => {
-
   const tmiClient = useRef<tmi.Client>()
   const [messages, setMessages] = useState<any[]>([])
 
@@ -12,7 +11,7 @@ export const useTmi = (channel: string) => {
       tmiClient.current?.removeAllListeners()
     }
   }, [])
-  
+
   const connectListener = async () => {
     tmiClient.current = new tmi.Client({ options: { debug: false }, channels: [channel] })
     await tmiClient.current?.connect()
@@ -24,5 +23,4 @@ export const useTmi = (channel: string) => {
   }
 
   return { messages }
-
 }

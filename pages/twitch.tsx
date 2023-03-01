@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { GetServerSidePropsContext, NextPage } from 'next'
 
 import { AppLayout, TwitchList, TwitchVideo } from '@/components'
-import { fetcher, getRandomInt, useTmi } from '@/utils'
+import { fetcher, getRandomInt } from '@/utils'
 import { API_URL } from '@/services'
 import { CreatorTwitchType } from '@/types'
 
