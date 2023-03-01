@@ -1,6 +1,6 @@
 import type { GetServerSidePropsContext, NextPage } from 'next'
 
-import { HomeHero, HomeCreators, AppLayout } from '@/components'
+import { HomeCreators, AppLayout } from '@/components'
 import { fetcher } from '@/utils'
 import { API_URL } from '@/services'
 

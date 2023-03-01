@@ -1,4 +1,4 @@
-import { EUserRole, ECreatorSocialType } from '@/models'
+import { ECreatorSocialType } from '@/types'
 
 export const CREATOR_CATEGORIES = ['backend', 'ciberseguridad', 'cloud', 'database', 'datascience', 'frontend', 'mobile', 'uiux']
 
@@ -13,8 +13,8 @@ export const CREATOR_SOCIAL = {
   youtube: { label: 'Youtube', icon: '', value: ECreatorSocialType.Youtube },
 }
 
-export const USER_ROLES = [
-  { label: 'Administrador', type: EUserRole.ADMIN },
-  { label: 'Colaborador', type: EUserRole.COLLABORATOR },
-  { label: 'Usuario', type: EUserRole.USER },
-]
+// export const USER_ROLES = [
+//   { label: 'Administrador', type: EUserRole.ADMIN },
+//   { label: 'Colaborador', type: EUserRole.COLLABORATOR },
+//   { label: 'Usuario', type: EUserRole.USER },
+// ]
