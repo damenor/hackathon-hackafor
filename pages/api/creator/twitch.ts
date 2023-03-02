@@ -4,11 +4,13 @@ import { CreatorTwitchType, CreatorType, ECreatorSocialType } from '@/types'
 
 const DEFAULT_CREATORS = [
   {
-    categories: ['frontend', 'backend', 'database'],
-    description: 'creator.description',
-    name: 'rubius',
-    social: [{ type: ECreatorSocialType.Twitch, userName: 'rubius' }],
-    web: 'https://bluuweb.github.io',
+    categories: ['frontend', 'backend'],
+    description: `I'm Christian Villegas, a full-stack developer 🚀`,
+    name: 'chrisvdev',
+    social: [
+      { type: ECreatorSocialType.Twitch, userName: 'chrisvdev' },
+      { type: ECreatorSocialType.Github, userName: 'chrisvill2312' },
+    ],
     active: true,
     _id: '63f65b1b2128836cb0ef86fbdsfasdf',
   },
@@ -17,7 +19,6 @@ const DEFAULT_CREATORS = [
     description: 'creator.description',
     name: 'yomolotakowapo',
     social: [{ type: ECreatorSocialType.Twitch, userName: 'yomolotakowapo' }],
-    web: 'https://bluuweb.github.io',
     active: true,
     _id: '63f65b1b2128836cb0ef86fbdsfasdf1',
   },

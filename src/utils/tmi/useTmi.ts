@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import tmi from 'tmi.js'
 
 export type TmiMessage = {
+  id: string
   channel: string
   userName?: string
   color?: string
@@ -28,6 +29,7 @@ export const useTmi = (channel: string) => {
     await tmiClient.current?.connect()
     tmiClient.current?.on('message', (channel, tags, text) => {
       const nextMessage: TmiMessage = {
+        id: crypto.randomUUID(),
         channel,
         userName: tags.username || tags['display-name'],
         color: tags.color,
