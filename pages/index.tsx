@@ -14,7 +14,7 @@ const HomePage: NextPage<HomePageProps> = ({ creators }) => {
       <HomeCreators creators={creators} />
       {/* <HomeHero /> */}
 
-      <div style={{ height: '300px' }}></div>
+      {/* <div style={{ height: '300px' }}></div> */}
     </AppLayout>
   )
 }
