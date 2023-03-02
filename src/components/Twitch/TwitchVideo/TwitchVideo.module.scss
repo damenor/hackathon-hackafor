@@ -22,6 +22,17 @@
       -104px 0 0 -56px #0e0e0e;
   }
 
+  &_buttonChat {
+    @include positionFixed($bottom: calc(var(--app-header-height)), $right: 16px, $zIndex: 998);
+    @include circle(56px);
+    background-color: var(--color-tertiary);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    @include mediaQuery($min: 768px) {
+      bottom: 16px;
+    }
+  
+  }
+
   &_data {
     @include flex($y: flex-start, $gap: 16px);
     padding: 8px 16px;

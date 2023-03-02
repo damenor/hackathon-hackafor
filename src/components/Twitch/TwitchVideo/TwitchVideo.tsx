@@ -1,4 +1,5 @@
 import { FC, useEffect, useMemo, useState } from 'react'
+import { RiWechatLine } from 'react-icons/ri'
 
 import { TWITCH_PARENT } from '@/constants'
 import { useMouseFollowerContext } from '@/ui'
@@ -30,12 +31,12 @@ const VideoIframe = ({ src }: any) => {
 export const TwitchVideo: FC<TwitchVideoProps> = ({ creator }) => {
   const [showChat, setShowChat] = useState(false)
   const image = useMemo(() => {
-    if(creator.avatar) return creator.avatar
-    return `https://unavatar.io/github/${creator.social.find((social) => social.type === ECreatorSocialType.Github)?.userName}`
+    if (creator.avatar) return creator.avatar
+    return `https://unavatar.io/github/${creator.social.find(social => social.type === ECreatorSocialType.Github)?.userName}`
   }, [creator])
 
   useEffect(() => {
-    if(showChat) setShowChat(false)
+    if (showChat) setShowChat(false)
   }, [creator])
 
   return (
@@ -55,10 +56,12 @@ export const TwitchVideo: FC<TwitchVideoProps> = ({ creator }) => {
               ))}
             </div>
           </div>
-          <button onClick={() => setShowChat(true)} style={{ backgroundColor: 'red', padding: '8px', fontSize: '1.5rem' }}>Ver chat</button>
         </div>
       </div>
-      { showChat && <TwitchVideoChat creator={creator} /> }
+      <button className={styles.twitchVideo_buttonChat} onClick={() => setShowChat(prevState => !prevState)}>
+        <RiWechatLine color="var(--color-tertiary-contrast)" size={32} />
+      </button>
+      {showChat && <TwitchVideoChat creator={creator} />}
     </>
   )
 }

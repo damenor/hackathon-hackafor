@@ -1,10 +1,15 @@
 .twitchVideoChat {
-  @include positionFixed($top: var(--app-header-height), $left: 0, $zIndex: 998);
+  @include positionFixed($bottom: calc(var(--app-header-height) + 72px), $right: 16px, $zIndex: 998);
   background-color: var(--color-bg-secondary);
   padding: 16px;
-  max-width: 450px;
+  width: calc(100% - 32px);
   box-shadow: 0 0 4px rgba(0, 0, 0, 1);
   border-radius: 16px;
+
+  @include mediaQuery($min: 768px) {
+    width: 360px;
+    bottom: 88px;
+  }
 
   &_title {
     font-size: 2rem;
