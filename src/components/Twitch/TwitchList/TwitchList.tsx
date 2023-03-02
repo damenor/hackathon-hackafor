@@ -20,6 +20,8 @@ export const TwitchList: FC<TwitchListProps> = ({ creators, onSelect }) => {
     onSelect(creator)
   }
 
+  if(creators.length === 0) return <></>
+
   return (
     <div className={styles.twitchList}>
       <div className={styles.twitchList_title}>

@@ -29,7 +29,7 @@ const TwitchPage: NextPage<TwitchPageProps> = ({ creatorsOnline, creatorsDisconn
             <TwitchList creators={creatorToList} onSelect={onSelectCreator} />
           </>
         ) : (
-          <h2>Ups! parece que no hay nadie online ahora mismo</h2>
+          <h2 style={{ paddingTop: '128px', textAlign: 'center' }}>Ups! parece que no hay nadie online ahora mismo</h2>
         )}
       </div>
     </AppLayout>

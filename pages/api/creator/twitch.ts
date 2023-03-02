@@ -17,8 +17,11 @@ const DEFAULT_CREATORS = [
   {
     categories: ['frontend', 'backend', 'database'],
     description: 'creator.description',
-    name: 'yomolotakowapo',
-    social: [{ type: ECreatorSocialType.Twitch, userName: 'yomolotakowapo' }],
+    name: 'MatiasBaldanza',
+    social: [
+      { type: ECreatorSocialType.Github, userName: 'matiasbaldanza' },
+      { type: ECreatorSocialType.Twitch, userName: 'MatiasBaldanza' }
+    ],
     active: true,
     _id: '63f65b1b2128836cb0ef86fbdsfasdf1',
   },
