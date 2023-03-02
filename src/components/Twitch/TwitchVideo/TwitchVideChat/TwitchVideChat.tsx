@@ -50,8 +50,7 @@ export const TwitchVideoChat: FC<TwitchVideoChatProps> = ({ creator }) => {
           <div className={styles.twitchVideoChat_content}>
             { messages.map(message => (
               <div className={styles.twitchVideoChat_message} key={message.id}>
-                <h3 style={{ color: message.color }}>{message.userName}:</h3>
-                <p>{message.text}</p>
+                <p><span style={{ color: message.color,  width: 'auto' }}>{message.userName}:</span> {message.text}</p>
               </div>
             )) }
           </div>

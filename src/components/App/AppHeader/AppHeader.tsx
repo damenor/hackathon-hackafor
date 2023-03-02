@@ -42,9 +42,9 @@ export const AppHeader: FC<AppHeaderProps> = () => {
           {/* <Link href="/" { ...mouseFollowerMethods }>
             <HiOutlineHome size={24}  />
           </Link> */}
-          <Link href="/" { ...mouseFollowerMethods }>
+          {/* <Link href="/" { ...mouseFollowerMethods }>
             <RiSettings3Line size={24}  />
-          </Link>
+          </Link> */}
           {/* <Link href="/twitch">
             <FiTwitch size={24} />
           </Link>
