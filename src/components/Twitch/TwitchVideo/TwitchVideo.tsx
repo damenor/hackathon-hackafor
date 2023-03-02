@@ -1,5 +1,6 @@
 import { FC, useEffect, useMemo, useState } from 'react'
 
+import { TWITCH_PARENT } from '@/constants'
 import { useMouseFollowerContext } from '@/ui'
 import { CreatorTwitchType, ECreatorSocialType } from '@/types'
 
@@ -40,7 +41,7 @@ export const TwitchVideo: FC<TwitchVideoProps> = ({ creator }) => {
   return (
     <>
       <div className={styles.twitchVideo}>
-        <VideoIframe src={`https://player.twitch.tv/?channel=${creator.twitchUserName}&parent=${process.env.WEB_DOMAIN}&muted=true`} />
+        <VideoIframe src={`https://player.twitch.tv/?channel=${creator.twitchUserName}&parent=${TWITCH_PARENT}&muted=true`} />
         <div className={styles.twitchVideo_data}>
           <div className={styles.twitchVideo_logo}>
             <img style={{ width: '100%', height: '100%', borderRadius: '50%' }} src={image} />

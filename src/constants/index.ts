@@ -1,7 +1,8 @@
 import { ECreatorSocialType } from '@/types'
 
-export const CREATOR_CATEGORIES = ['backend', 'ciberseguridad', 'cloud', 'database', 'datascience', 'frontend', 'mobile', 'uiux']
+export const TWITCH_PARENT = process.env.ENV === 'development' ? 'localhost' : 'education4.dev&parent=www.education4.dev' 
 
+export const CREATOR_CATEGORIES = ['backend', 'ciberseguridad', 'cloud', 'database', 'datascience', 'frontend', 'mobile', 'uiux']
 
 export const CREATOR_SOCIAL = {
   discord: { label: 'Discord', icon: '', value: ECreatorSocialType.Discord },
