@@ -16,7 +16,7 @@
 
   @include flex($direction: column);
   height: 100%;
-  min-height: calc(100vh - var(--app-header-height));
+  min-height: 100vh;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -30,13 +30,29 @@
 
   @include mediaQuery($min: 768px) {
     flex-direction: row;
+    min-height: calc(100vh - var(--app-header-height));
+  }
+
+  &_buttons {
+    @include positionAbsolute($top: 8px, $left: 50%, $zIndex: 20);
+    @include flex;
+    transform: translateX(-50%);
+
+    backdrop-filter: blur(32px);
+    border: 2px solid var(--color-bg-contrast);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    padding: 4px 0;
+    @include mediaQuery($min: 768px) {
+      top: var(--app-header-height);
+    }
   }
 
   &_item {
     @include flex($x: stretch);
     flex: 1;
     min-height: 48px;
-    // cursor: pointer;
+    cursor: pointer;
     transition: all 0.35s ease;
     position: relative;
     background-size: cover;
@@ -56,7 +72,7 @@
     &__active {
       flex: 6;
       min-height: 450px;
-      // cursor: default;
+      cursor: default;
       &:before {
         background: linear-gradient(180deg, rgba(15, 15, 15, 0) 0%, var(--color-bg) 100%);
       }

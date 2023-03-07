@@ -1,59 +1,47 @@
 import Link from 'next/link'
-import { FC } from 'react'
-import { CgMenuLeft } from 'react-icons/cg'
-import { FiTwitch, FiYoutube } from 'react-icons/fi'
-import { HiOutlineHome } from 'react-icons/hi'
-import { RiSettings3Line } from 'react-icons/ri'
+import { FC, useRef } from 'react'
+import { CgMenuLeft, CgClose } from 'react-icons/cg'
 
-import { useMouseFollowerMethods } from '@/ui'
+import { ButtonIcon, Modal, ModalHandle } from '@/ui'
 
 import styles from './AppHeader.module.scss'
+import { AppHeaderMenuLink } from './AppHeaderMenuLink'
+
+const MENU_LINKS = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Ver en directo', href: '/twitch' },
+  // { label: 'Últimos videos', href: '/youtube' },
+]
 
 export type AppHeaderProps = {}
 
 export const AppHeader: FC<AppHeaderProps> = () => {
+  const modalRef = useRef<ModalHandle>()
 
-  const mouseFollowerMethods = useMouseFollowerMethods()
+  const onOpenModal = () => modalRef.current?.open()
+  const onCloseModal = () => modalRef.current?.close()
 
   return (
-    <header className={styles.appHeader}>
+    <>
+      <header className={styles.appHeader}>
+        <div className={styles.appHeader_content}>
+          <div className={styles.appHeader_left}>
+            <ButtonIcon Icon={CgMenuLeft} onClick={onOpenModal} />
+          </div>
 
-      <div className={styles.appHeader_content}>
-        
-        
-        <div className={styles.appHeader_left}>
-          {/* <CgMenuLeft size={24} /> */}
-
-          <Link className={styles.appHeader_button} href="/twitch" { ...mouseFollowerMethods }>
-            Ver en directo
+          <Link href="/">
+            <h1 className={styles.appHeader_title}>Education4DEV</h1>
           </Link>
 
-          <Link href="/twitch" { ...mouseFollowerMethods }>
-            Videos
-          </Link>
-
+          <div className={styles.appHeader_right}></div>
         </div>
-
-        <Link href="/">
-          <h1 className={styles.appHeader_title}>Education4DEV</h1>
-        </Link>
-
-        <div className={styles.appHeader_right}>
-          {/* <Link href="/" { ...mouseFollowerMethods }>
-            <HiOutlineHome size={24}  />
-          </Link> */}
-          {/* <Link href="/" { ...mouseFollowerMethods }>
-            <RiSettings3Line size={24}  />
-          </Link> */}
-          {/* <Link href="/twitch">
-            <FiTwitch size={24} />
-          </Link>
-          <Link href="/youtube">
-            <FiYoutube size={24} />
-          </Link> */}
-        </div>
-      </div>
-
-    </header>
+      </header>
+      <Modal classNameParent={styles.appHeader_modal} className={styles.appHeader_modalContent} type="left" ref={modalRef as any}>
+        <ButtonIcon className={styles.appHeader_close} Icon={CgClose} color="danger" onClick={onCloseModal} />
+        {MENU_LINKS.map(link => (
+          <AppHeaderMenuLink key={link.href} {...link} onClick={onCloseModal} />
+        ))}
+      </Modal>
+    </>
   )
 }

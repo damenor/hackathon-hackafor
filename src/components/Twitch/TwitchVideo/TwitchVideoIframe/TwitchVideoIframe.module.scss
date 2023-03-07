@@ -1,0 +1,38 @@
+.twitchVideoIframe {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @include mediaQuery($min: 768px) {
+    padding: 0 48px;
+    padding-top: calc(var(--app-header-height) + 32px);
+  }
+  
+  &_content {
+    aspect-ratio: 16/9;
+    width: 100%;
+    z-index: 2;
+    box-shadow:
+        40px 0 0 -24px #070707, 
+        -40px 0 0 -24px #070707,
+        72px 0 0 -40px #0a0a0a, 
+        -72px 0 0 -40px #0a0a0a,
+        104px 0 0 -56px #0e0e0e, 
+        -104px 0 0 -56px #0e0e0e;
+
+    div {
+      @include flex($direction: column, $x: center, $y: space-between);
+      background-color: var(--color-light);
+      height: 100%;
+    }
+    h2 {
+      color: var(--color-dark);
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      padding-top: 32px;
+    }
+    img {
+      height: 70%;
+      max-width: 450px;
+    }
+  }
+}

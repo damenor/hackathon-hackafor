@@ -1,0 +1,37 @@
+.twitchVideoChat {
+  max-width: 960px;
+  padding: 8px 0;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--color-bg-secondary);
+
+  @include mediaQuery($min: 768px) {
+    display: none;
+  }
+
+  &_contentLoading {
+    display: grid;
+    place-items: center;
+    height: 100%;
+  }
+
+  &_content {
+    @include flex($direction: column);
+    max-height: 50vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+  }
+  
+  &_message {
+    @include flex($y: flex-start, $gap: 8px);
+    padding: 4px 16px;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    span {
+      font-weight: bold;
+    }
+  }
+}

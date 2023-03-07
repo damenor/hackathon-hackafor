@@ -1,0 +1,48 @@
+import { forwardRef, ForwardRefRenderFunction, useImperativeHandle, useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+
+import styles from './Modal.module.scss'
+import { ModalHandle, ModalProps } from './Modal.types'
+import { ModalBackdrop } from './ModalBackdrop'
+import * as modalVariants from './modalVariants'
+
+export const ModalComponent: ForwardRefRenderFunction<ModalHandle, ModalProps> = (
+  { children, onClose, onOpen, isDragging, className = '', classNameParent = '', notCloseBackdrop = false, type = 'center' },
+  ref
+) => {
+  const [visible, setVisible] = useState(false)
+
+  const close = () => {
+    if (onClose) onClose()
+    setVisible(false)
+  }
+  const open = () => {
+    if (onOpen) onOpen()
+    setVisible(true)
+  }
+
+  useImperativeHandle(ref, () => ({ visible, open, close }))
+
+  return (
+    <AnimatePresence initial={visible} mode="wait">
+      {visible && (
+        <>
+          <ModalBackdrop notCloseBackdrop={notCloseBackdrop} onClose={close} />
+          <motion.div
+            className={`${styles.modal} ${classNameParent}`}
+            variants={modalVariants[type]}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <motion.div className={className}>
+              {children}
+            </motion.div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  )
+}
+ModalComponent.displayName = 'Modal'
+export const Modal = forwardRef(ModalComponent)

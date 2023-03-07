@@ -1,2 +1,2 @@
 export * from './HomeCreators'
-export * from './HomeHero'
+export * from './HomeInLive'

@@ -1,0 +1,55 @@
+.twitchVideoData {
+  display: grid;
+  grid-template-columns: minmax(60px, 80px) 1fr;
+  gap: 8px;
+  padding: 8px 16px;
+
+  &_logo {
+    @include circle($size: clamp(60px, 6vw, 80px));
+    border: 2px solid var(--color-danger);
+    position: relative;
+    &:after {
+      @include positionAbsolute($bottom: -8px, $left: -4px);
+      content: 'DIRECTO';
+      width: 100%;
+      background-color: var(--color-danger);
+      padding: 6px 4px;
+      font-weight: bold;
+      font-size: clamp(0.6rem, 1vw, 0.8rem);
+      text-align: center;
+      border-radius: 4px;
+    }
+  }
+
+  &_content {
+    @include flex($direction: column, $gap: 2px);
+    @include mediaQuery($min: 768px) {
+      padding-top: 8px;
+    }
+  }
+
+  &_name {
+    @include textTruncate;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: bold;
+    flex: 1;
+  }
+
+  &_userName {
+    color: var(--color-grey);
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+  }
+
+  &_tags {
+    @include flex($gap: 4px, $isWrap: true);
+    padding-top: 8px;
+    overflow: hidden;
+  }
+
+  &_tag {
+    font-size: 0.7rem;
+    padding: 8px 12px;
+    background-color: var(--color-bg-secondary);
+    border-radius: 16px;
+  }
+}

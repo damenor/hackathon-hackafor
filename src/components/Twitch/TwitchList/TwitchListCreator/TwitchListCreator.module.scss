@@ -1,0 +1,16 @@
+.twitchListCreator {
+  @include flex($gap: 8px);
+  margin-bottom: 16px;
+  img {
+    @include circle(40px);
+  }
+  
+  &_data {
+    @include flex($direction: column, $y: center, $gap: 4px);
+
+    span {
+      color: var(--color-grey);
+      font-size: 0.7rem;
+    }
+  }
+}

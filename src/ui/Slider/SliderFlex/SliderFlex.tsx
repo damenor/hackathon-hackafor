@@ -1,19 +1,24 @@
 import { FC } from 'react'
-
-import { useMouseFollowerMethods } from '@/ui/MouseFollower'
+import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai'
 
 import { SliderFlexProps } from './SliderFlex.types'
 import { styles, getClassNamesItem } from './SliderFlex.styles'
 import { useSliderFlex } from './useSliderFlex'
 
 export const SliderFlex: FC<SliderFlexProps> = ({ sliders, initialActive = 0 }) => {
-  
-  const { endToRender, initialToRender, page, onSelect } = useSliderFlex({ sliders, initialActive })
-  const mouseFollowerMethods = useMouseFollowerMethods()
+  const { endToRender, initialToRender, page, onSelect, onNext, onPrev } = useSliderFlex({ sliders, initialActive })
 
   return (
     <>
-      <ul className={styles.sliderFlex} { ...mouseFollowerMethods }>
+      <div className={styles.sliderFlex_buttons}>
+        <button onClick={onPrev}>
+          <AiOutlineCaretLeft size={24} color="var(--color-bg-contrast)" />
+        </button>
+        <button onClick={onNext}>
+          <AiOutlineCaretRight size={24} color="var(--color-bg-contrast)" />
+        </button>
+      </div>
+      <ul className={styles.sliderFlex}>
         {sliders.slice(initialToRender, endToRender).map((slider, index) => {
           const isActive = page === index
           const className = getClassNamesItem(isActive)
@@ -34,7 +39,6 @@ export const SliderFlex: FC<SliderFlexProps> = ({ sliders, initialActive = 0 }) 
                   </div>
                 </div>
               </div>
-              
             </li>
           )
         })}

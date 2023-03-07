@@ -1,7 +1,7 @@
 .appHeader {
   height: var(--app-header-height);
   @include flex($y: center, $x: center);
-  @include positionFixed($top: calc(100% - var(--app-header-height)), $left: 0, $zIndex: 999);
+  @include positionFixed($top: calc(100% - var(--app-header-height)), $left: 0, $zIndex: 99);
   backdrop-filter: blur(8px);
   padding: 0 16px;
   width: 100%;
@@ -10,13 +10,13 @@
     @include positionFixed($top: 0, $left: 0);
   }
 
-  a {
-    cursor: none;
+  &_close {
+    @include positionAbsolute($top: 8px, $right: 8px);
   }
   
   &_content {
     @include flex($y: center, $x: space-between, $gap: 16px);
-    max-width: 1400px;
+    // max-width: 1400px;
     width: 100%;
   }
 
@@ -36,20 +36,31 @@
     justify-content: flex-end
   }
 
-  &_button {
-    @include transition;
-    background-color: var(--color-secondary);
-    border-radius: 32px;
-    color: var(--color-secondary-contrast);
-    font-weight: bold;
-    padding: 8px 16px;
-    &:hover {
-      box-shadow: 0 0 8px var(--color-secondary), 0 0 16px var(--color-secondary);
+  &_modal {
+    top: 0;
+    left: 0;
+    &Content {
+      width: 100vw;
+      height: 100vh;
+      background-color: var(--color-bg-secondary);
+      @include flex($direction: column, $x: center, $y: center, $gap: 32px);
     }
-    
-    &:active {
-      box-shadow: 0 0 0 var(--color-bg), 0 0 0 var(--color-bg);
-      scale: 0.9;
+  }
+  &_link {
+    position: relative;
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    @include transition;
+    opacity: 0.4;
+    &__active {
+      color: var(--color-primary);
+    }
+    &:hover {
+      color: var(--color-secondary);
+    }
+    &__active,
+    &:hover {
+      opacity: 1;
+      text-decoration: line-through;
     }
   }
 }

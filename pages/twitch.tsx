@@ -12,26 +12,21 @@ type TwitchPageProps = {
 }
 
 const TwitchPage: NextPage<TwitchPageProps> = ({ creatorsOnline, creatorsDisconnected }) => {
+  
   const initialCreator = getRandomInt({ max: creatorsOnline.length })
   const [creator, setCreator] = useState(creatorsOnline[initialCreator])
-  const creatorToList = creatorsOnline.filter(cre => cre._id !== creator._id)
 
-  const onSelectCreator = async (newCreator: CreatorTwitchType) => {
-    setCreator(newCreator)
-  }
+  console.log({ creatorsOnline, creatorsDisconnected })
+
+  // const creatorToList = creatorsOnline.filter(cre => cre._id !== creator._id)
+  // const onSelectCreator = async (newCreator: CreatorTwitchType) => {
+  //   setCreator(newCreator)
+  // }
 
   return (
     <AppLayout subtitle="Directo en twitch">
-      <div>
-        {creatorsOnline.length > 0 ? (
-          <>
-            <TwitchVideo creator={creator} />
-            <TwitchList creators={creatorToList} onSelect={onSelectCreator} />
-          </>
-        ) : (
-          <h2 style={{ paddingTop: '128px', textAlign: 'center' }}>Ups! parece que no hay nadie online ahora mismo</h2>
-        )}
-      </div>
+      <TwitchVideo creator={creator} />
+      <TwitchList creators={creatorsOnline} creatorsNotOnline={creatorsDisconnected} onSelect={setCreator} />
     </AppLayout>
   )
 }

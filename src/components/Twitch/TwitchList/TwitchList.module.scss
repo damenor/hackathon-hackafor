@@ -1,21 +1,6 @@
 .twitchList {
   padding-bottom: var(--app-header-height);
-  
-  &_title {
-    @include containerWavy;
-    @include flex($x: center);
-    padding: clamp(48px, 10vw, 96px) 0;
-    margin: 48px 0;
-    color: var(--color-bg);
-    h2 {
-      font-size: clamp(1.5rem, 5vw, 3rem);
-      font-weight: bold;
-      max-width: 450px;
-      text-align: center;
-      padding: 32px;
-    }
-  }
-  
+    
   &_content {
     max-width: 960px;
     padding: 0 16px;
@@ -47,6 +32,30 @@
     &UserName {
       color: var(--color-grey);
       font-size: 0.8rem;
+    }
+  }
+
+  &_button {
+    @include positionFixed($top: calc(100% - (var(--app-header-height) - 12px)), $right: 16px, $zIndex: 99);
+    @include mediaQuery($min: 768px) {
+      top: 12px;
+    }
+  }
+
+  &_modal {
+    width: 300px;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    background-color: var(--color-bg);
+    padding: 16px;
+    padding-top: 32px;
+    &Title {
+      padding-bottom: 16px;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+      font-size: 1.25rem;
+      font-weight: bold;
     }
   }
 

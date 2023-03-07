@@ -1,6 +1,6 @@
 import type { GetServerSidePropsContext, NextPage } from 'next'
 
-import { HomeCreators, AppLayout } from '@/components'
+import { HomeCreators, AppLayout, HomeInLive } from '@/components'
 import { fetcher } from '@/utils'
 import { API_URL } from '@/services'
 
@@ -10,11 +10,9 @@ type HomePageProps = {
 
 const HomePage: NextPage<HomePageProps> = ({ creators }) => {
   return (
-    <AppLayout mainStyle={{ paddingTop: 'var(--app-header-height' }}>
+    <AppLayout mainClassName="mainWithHeaderPadding">
       <HomeCreators creators={creators} />
-      {/* <HomeHero /> */}
-
-      {/* <div style={{ height: '300px' }}></div> */}
+      <HomeInLive />
     </AppLayout>
   )
 }

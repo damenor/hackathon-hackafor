@@ -1,8 +1,6 @@
 import { CreatorModel } from '@/models'
 import { apiHandlerWithDB } from '@/utils'
 
-const creatorIndexController = {
+export default apiHandlerWithDB({
   get: async () => CreatorModel.findActives(true),
-}
-
-export default apiHandlerWithDB(creatorIndexController)
+})

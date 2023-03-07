@@ -1,67 +1,21 @@
-import { FC, useEffect, useMemo, useState } from 'react'
-import { RiWechatLine } from 'react-icons/ri'
+import { FC } from 'react'
 
-import { TWITCH_PARENT } from '@/constants'
-import { useMouseFollowerContext } from '@/ui'
-import { CreatorTwitchType, ECreatorSocialType } from '@/types'
+import { CreatorTwitchType } from '@/types'
 
 import styles from './TwitchVideo.module.scss'
-import { TwitchVideoChat } from './TwitchVideChat'
+import { TwitchVideoChat } from './TwitchVideoChat'
+import { TwitchVideoIframe } from './TwitchVideoIframe'
 
 export type TwitchVideoProps = {
   creator: CreatorTwitchType
 }
 
-const VideoIframe = ({ src }: any) => {
-  const { setSize } = useMouseFollowerContext()
-  return (
-    <div className={styles.twitchVideo_iframe}>
-      <iframe
-        src={src}
-        height="100%"
-        width="100%"
-        allowFullScreen
-        onMouseOver={() => setSize('hide')}
-        onMouseLeave={() => setSize('normal')}
-      ></iframe>
-    </div>
-  )
-}
-
 export const TwitchVideo: FC<TwitchVideoProps> = ({ creator }) => {
-  const [showChat, setShowChat] = useState(false)
-  const image = useMemo(() => {
-    if (creator.avatar) return creator.avatar
-    return `https://unavatar.io/github/${creator.social.find(social => social.type === ECreatorSocialType.Github)?.userName}`
-  }, [creator])
-
-  useEffect(() => {
-    if (showChat) setShowChat(false)
-  }, [creator])
-
+  console.log({creator})
   return (
-    <>
-      <div className={styles.twitchVideo}>
-        <VideoIframe src={`https://player.twitch.tv/?channel=${creator.twitchUserName}&parent=${TWITCH_PARENT}&muted=true`} />
-        <div className={styles.twitchVideo_data}>
-          <div className={styles.twitchVideo_logo}>
-            <img style={{ width: '100%', height: '100%', borderRadius: '50%' }} src={image} />
-          </div>
-          <div className={styles.twitchVideo_content}>
-            <h2 className={styles.twitchVideo_name}>{creator.name}</h2>
-            <p className={styles.twitchVideo_userName}>{creator.twitchUserName}</p>
-            <div className={styles.twitchVideo_tags}>
-              {creator.categories.map((category: string) => (
-                <div className={styles.twitchVideo_tag}>{category}</div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-      <button className={styles.twitchVideo_buttonChat} onClick={() => setShowChat(prevState => !prevState)}>
-        <RiWechatLine color="var(--color-tertiary-contrast)" size={32} />
-      </button>
-      {showChat && <TwitchVideoChat creator={creator} />}
-    </>
+    <div className={styles.twitchVideo}>
+      <TwitchVideoIframe creator={creator} />
+      {creator && <TwitchVideoChat creator={creator} />}
+    </div>
   )
 }
