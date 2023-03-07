@@ -1,15 +1,18 @@
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 
 import { SliderFlex, SliderFlexItem } from '@/ui'
+import { CreatorTwitchType, ECreatorSocialType } from '@/types'
 
 export type HomeCreatorsProps = {
-  creators: any
+  creators: CreatorTwitchType[]
 }
 
 const convertToFlexSlider = ({ creators }: HomeCreatorsProps): SliderFlexItem[] => {
-  return creators.map((creator: any) => {
-    const image = `https://github.com/${creator.social.find((social: any) => social.type === 'github')?.userName}.png?s=1200`
-    // const image = `https://unavatar.io/${creator.social.find((social: any) => social.type === 'github')?.userName}`
+  return creators.map((creator) => {
+    const image = useMemo(() => {
+      if (creator.avatar) return creator.avatar
+      return `https://unavatar.io/github/${creator.social.find(social => social.type === ECreatorSocialType.Github)?.userName}`
+    }, [creator])
     return {
       description: creator.description,
       id: creator._id,
